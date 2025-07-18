@@ -21,7 +21,7 @@ Un outil d'audit de sécurité WiFi multifonctionnel, conçu pour des fins éduc
 
 1.  Clonez le dépôt :
     ```bash
-    git clone [https://github.com/bendjinymous/Wifi-Dominator.git](https://github.com/bendjinymous/Wifi-Dominator.git)
+    git clone https://github.com/bendjinymous/Wifi-Dominator.git
     cd Wifi-Dominator
     ```
 
